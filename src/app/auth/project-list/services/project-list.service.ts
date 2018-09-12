@@ -7,7 +7,9 @@ import { map } from "rxjs/operators";
 
 @Injectable()
 export class ProjectListService {
+
     projects: Array<Project> = [];
+
     constructor(private _http: Http){
     }
 
@@ -25,5 +27,17 @@ export class ProjectListService {
         //onFinished
         //Http Request Open connection ---> Server
         //UI <--- Response
+    }
+
+    deleteProject(project: Project) :Observable<Project> {
+        const url = `http://172.104.91.187/projects/${project.id}`;
+        const headers = new Headers({'Content-Type':'application/json'});
+        const options = new RequestOptions({headers:headers});
+        return this._http.delete(url,options).pipe(
+        map((response) => {
+            console.log(response);
+            return  response.json()
+        }
+        ));
     }
 }
