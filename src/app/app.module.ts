@@ -21,6 +21,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { HomeComponent } from './auth/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './common/not-found/not-found.component';
+import { SortingComponent } from './common/sorting/sorting.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
     LoaderComponent,
     LoginComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SortingComponent
   ],
   imports: [
     BrowserModule,

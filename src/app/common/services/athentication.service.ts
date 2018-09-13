@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Config } from '../config';
 import { SessionStorageService } from 'ngx-webstorage';
 import { HttpService } from './http.service';
+import { Http } from '@angular/http';
 
 @Injectable()
-export class AthenticationService {
+export class AthenticationService extends HttpService{
 
   hasSession = false;
   user;
   apiBaseURL: string = Config.API_SERVER_URL;
 
-  constructor(public _http: HttpService, public _locker: SessionStorageService) {
+  constructor(public _http: Http, public _locker: SessionStorageService) {
+    super(_http);
   }
 
   public isLoggedIn() {
@@ -24,8 +26,7 @@ export class AthenticationService {
 
   public logIn(username: string, password: string) {
     const url = `${this.apiBaseURL}/users/login`;
-
-    return this._http.post(url, {
+    return this.post(url, {
       'username': username,
       'password': password
     });
@@ -37,5 +38,5 @@ export class AthenticationService {
     this._locker.clear('user');
   }
 
- 
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AthenticationService } from '../services/athentication.service';
+import { Router } from '@angular/router';
+import { AthenticationService } from '../../common/services/athentication.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import { AthenticationService } from '../services/athentication.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public _authService: AthenticationService) { }
+  constructor(public _router:Router, public _authService: AthenticationService) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this._authService.logout();
+    this._router.navigate(['/login']);
   }
 
 }

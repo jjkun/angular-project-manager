@@ -1,4 +1,4 @@
-<header class="b-header">
+<header  *ngIf="_authService.isLoggedIn()" class="b-header">
 
   <!--[if lt IE 7]>
   <p class="browsehappy">Nos está visitando con un <strong>navegador antiguo</strong>. Para disfrutar este
@@ -31,8 +31,8 @@
               <li class="leaf">
                 <a *ngIf="_authService.isLoggedIn()" routerLink="/issues" title="Issues">Issues</a>
               </li>
-              <li class="leaf">
-                <a title="Cerrar sesión">Salir</a>
+              <li class="leaf" *ngIf="_authService.isLoggedIn()">
+                <a title="Cerrar sesión" (click)="logout()">Salir</a>
               </li>
             </ul>
           </div>

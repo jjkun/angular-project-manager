@@ -1,43 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
 
 import { map } from "rxjs/operators";
+import { AthenticationService } from '../../../common/services/athentication.service';
+import { HttpService } from '../../../common/services/http.service';
+import { Config } from '../../../common/config';
 
 @Injectable()
-export class ProjectListService {
+export class ProjectListService extends HttpService{
 
     projects: Array<Project> = [];
 
-    constructor(private _http: Http){
+    constructor(public _http: Http,public _authService: AthenticationService){
+      super(_http);
     }
 
     getAll() : Observable<Array<Project>>{
-        const url = 'http://172.104.91.187/projects';
-        const headers = new Headers({'Content-Type':'application/json'});
-        const options = new RequestOptions({headers:headers});
-        return this._http.get(url,options).pipe(
-            map((response) => {
-                return  response.json()
-            }
-        ));
-        //next()
-        //error()
-        //onFinished
-        //Http Request Open connection ---> Server
-        //UI <--- Response
+        const url = `${this.apiBaseURL}/projects`;
+        const token  = this._authService.user.api_token;
+        return this.get(url,token);
     }
 
     deleteProject(project: Project) :Observable<Project> {
-        const url = `http://172.104.91.187/projects/${project.id}`;
-        const headers = new Headers({'Content-Type':'application/json'});
-        const options = new RequestOptions({headers:headers});
-        return this._http.delete(url,options).pipe(
-        map((response) => {
-            console.log(response);
-            return  response.json()
-        }
-        ));
+        const url = `${this.apiBaseURL}/projects/${project.id}`;
+        const token  = this._authService.user.api_token;
+        return this.delete(url,token);
     }
 }

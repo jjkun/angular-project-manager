@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectListService } from './services/project-list.service';
 import { Project } from './models/project.model';
-import { Http,Headers, RequestOptions } from '@angular/http';
-
-import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-project-list',
@@ -15,7 +12,7 @@ export class ProjectListComponent implements OnInit {
   isLoading = true;
   projects: Array<Project>
 
-  constructor(private _projectListService: ProjectListService, private _http: Http) { }
+  constructor(public _projectListService: ProjectListService) { }
 
   ngOnInit() {
     this.getAllProjects();
@@ -29,7 +26,7 @@ export class ProjectListComponent implements OnInit {
       },
       err => {
         console.error(err);
-      }, 
+      },
       () => {
         console.log("Finished");
       }
@@ -44,11 +41,15 @@ export class ProjectListComponent implements OnInit {
       },
       err => {
         console.error(err);
-      }, 
+      },
       () => {
         console.log("Finished");
       }
     );
+  }
+
+  setData(sortedData){
+    this.projects = sortedData;
   }
 
 }
