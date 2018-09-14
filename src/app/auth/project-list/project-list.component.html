@@ -16,7 +16,8 @@
   </div>
 
   <div class="b-project-list">
-    <h2>Proyectos</h2>
+    <!-- <h2>Proyectos</h2>-->
+    <ng-content select="h2"></ng-content>
     <div class="b-project" *ngFor="let project of projects">
       <div class="b-project__title-container">
         <a routerLink="/proyectos/detalle/{{project.id}}">
@@ -42,9 +43,10 @@
   <div class="row">
     <div class="col-md-2 col-md-offset-10 margin-top-sm">
       <div class="b-btn-new-project overflow-hidden">
-        <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
+        <!-- <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
           Nuevo Proyecto
-        </button>
+        </button> -->
+        <ng-content select="button"></ng-content>
       </div>
     </div>
   </div>
