@@ -4,13 +4,15 @@ import { HomeRoutingModule } from './home-routing.module';
 import { RouterModule } from '@angular/router';
 import { ProjectsModule } from '../projects/projects.module';
 import { HomeComponent } from './home.component';
+import { IssuesModule } from '../issues-list/issues.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     HomeRoutingModule,
-    ProjectsModule
+    ProjectsModule,
+    IssuesModule
   ],
   declarations: [
     HomeComponent

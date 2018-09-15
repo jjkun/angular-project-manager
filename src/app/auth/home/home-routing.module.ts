@@ -10,6 +10,9 @@ const routes : Routes = [
   },
   {
     path:'proyectos', loadChildren: './../projects/projects.module#ProjectsModule', data: { name: 'Proyectos' }, canActivate: [ AuthGuard ]
+  },
+  {
+    path:'issues', loadChildren: './../issues-list/issues.module#IssuesModule', data: { name: 'Issues' }, canActivate: [ AuthGuard ]
   }
 ]
 

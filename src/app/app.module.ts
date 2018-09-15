@@ -17,8 +17,6 @@ import { PublicGuard } from './common/guards/public.guard';
 
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NotFoundComponent } from './common/not-found/not-found.component';
-import { NewIssueComponent } from './auth/issues-list/new-issue/new-issue.component';
-import { IssuesListService } from './auth/issues-list/services/issues-list.service';
 
 //Sub modulos de la aplicacion
 import { ProjectsModule } from './auth/projects/projects.module';
@@ -30,8 +28,6 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     HeaderComponent,
     NotFoundComponent,
-    // IssuesListComponent,
-    NewIssueComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +40,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [AthenticationService,HttpService,AuthGuard,PublicGuard,IssuesListService],
+  providers: [AthenticationService,HttpService,AuthGuard,PublicGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

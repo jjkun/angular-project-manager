@@ -15,28 +15,7 @@ export const routes: Routes = [
     path: 'login', loadChildren: './public/login/login.module#LoginModule' , pathMatch: 'full', canActivate: [ PublicGuard ]
   },
   {
-    path: 'auth/home', loadChildren: './auth/home/home.module#HomeModule', data: { name: 'Home' }, canActivate: [ AuthGuard ]
-  },
-  // {
-  //   path: 'proyectos', component: ProjectsHomeComponent,
-  //   data: { name: 'Proyectos' }, canActivate: [ AuthGuard ],
-  //   children: [
-  //     { path: '', component: ProjectListComponent,  pathMatch: 'full' },
-  //     { path: 'detalle/:id', component: ProjectDetailComponent },
-  //     ]
-  // },
-  // {
-  //   path: 'issues', component: IssuesListComponent, data: { name: 'Issues' }, canActivate: [ AuthGuard ]
-  // },
-  // {
-  //   path: 'proyectos/nuevo',
-  //   component: NewProjectComponent,
-  //   canActivate: [ AuthGuard ]
-  // },
-  {
-    path: 'issues/nuevo',
-    component: NewIssueComponent,
-    canActivate: [ AuthGuard ]
+    path: 'auth', loadChildren: './auth/home/home.module#HomeModule', data: { name: 'Home' }, canActivate: [ AuthGuard ]
   },
   {
     path: '**', component: NotFoundComponent
@@ -50,6 +29,6 @@ export const routes: Routes = [
   ],
   declarations: []
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }

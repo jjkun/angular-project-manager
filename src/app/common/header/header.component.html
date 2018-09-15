@@ -1,4 +1,4 @@
-<header  *ngIf="_authService.isLoggedIn()" class="b-header">
+<header class="b-header">
 
   <!--[if lt IE 7]>
   <p class="browsehappy">Nos está visitando con un <strong>navegador antiguo</strong>. Para disfrutar este
@@ -18,18 +18,31 @@
               <span class="icon-bar"></span>
             </button>
             <div id="logo" class="logo">
-              <a class="b-navbar-brand">
+              <a
+                routerLink="/"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="b-navbar-brand">
                 <i class="fa fa-area-chart" aria-hidden="true"></i>
               </a>
             </div>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav pull-right">
-              <li class="leaf">
-                <a *ngIf="_authService.isLoggedIn()" routerLink="/proyectos" title="Proyectos">Proyectos</a>
+              <li class="leaf"
+                  *ngIf="_authService.isLoggedIn()">
+                <a
+                  routerLink="/auth/proyectos"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  title="Cursos">Proyectos</a>
               </li>
-              <li class="leaf">
-                <a *ngIf="_authService.isLoggedIn()" routerLink="/issues" title="Issues">Issues</a>
+              <li class="leaf"
+                  *ngIf="_authService.isLoggedIn()">
+                <a routerLink="/auth/issues"
+                   routerLinkActive="active"
+                   [routerLinkActiveOptions]="{ exact: true }"
+                   title="Issues">Issues</a>
               </li>
               <li class="leaf" *ngIf="_authService.isLoggedIn()">
                 <a title="Cerrar sesión" (click)="logout()">Salir</a>
