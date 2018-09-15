@@ -16,7 +16,7 @@ export class PublicGuard implements CanActivate {
       return true;
     }
     console.log("Usuario autenticado");
-    this._router.navigate(['/home']);
+    this._router.navigate(['/auth/home']);
     return false;
   }
 }

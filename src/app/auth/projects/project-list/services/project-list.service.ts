@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
-import { AthenticationService } from '../../../common/services/athentication.service';
-import { HttpService } from '../../../common/services/http.service';
+import { HttpService } from '../../../../common/services/http.service';
+import { AthenticationService } from '../../../../common/services/athentication.service';
 
 @Injectable()
 export class ProjectListService extends HttpService{

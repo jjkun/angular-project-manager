@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Project} from '../models/project.model';
-import {HttpService} from '../../../common/services/http.service';
-import {Config} from '../../../common/config';
 import {Router} from '@angular/router';
 import {AlertsService} from '@jaspero/ng-alerts';
-import { AthenticationService } from '../../../common/services/athentication.service';
+import { Config } from '../../../../common/config';
+import { HttpService } from '../../../../common/services/http.service';
+import { AthenticationService } from '../../../../common/services/athentication.service';
 
 @Component({
   selector: 'app-new-project',
