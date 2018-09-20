@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { NewProjectComponent } from './project-list/new-project/new-project.component';
-import { AuthGuard } from '../../common/guards/auth.guard';
 
 const routes : Routes = [
   {
